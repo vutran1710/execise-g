@@ -1,0 +1,28 @@
+@import 'var';
+@import 'mixin';
+@import 'class';
+@import 'form';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+button, input, textarea {
+  &:focus {
+    outline: none;
+  }
+}
+
+.select-control {
+  height: 32px
+}
+
+input, textarea {
+  font-size: 12pt;
+  color: $light-grey;
+}

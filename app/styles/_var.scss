@@ -1,0 +1,24 @@
+$primary: #00b0f9;
+$green: #009eaa;
+$white: #ffffff;
+$warning: #F27F7F;
+$border: #f0f0f0;
+$dark-grey: #484848;
+$light-grey: #707070;
+$soft-grey: #e2e2e2;
+$black: #000000;
+
+$colors: $primary, $green, $white, $warning, $dark-grey, $light-grey, $soft-grey;
+
+@for $i from 1 through length($colors) {
+  .bg-#{$i} {
+    background-color: nth($colors, $i);
+  }
+}
+
+// Utils
+$modal-background: rgba(0, 0, 0, 0.5);
+
+// Spacing
+$space: 20px;
+$form-space: 10px;

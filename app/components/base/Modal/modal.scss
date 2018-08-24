@@ -1,0 +1,51 @@
+@import 'app/styles/var';
+
+.modalWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  min-height: 800px;
+  min-width: 800px;
+  z-index: 99999 !important;
+
+  > div {
+    position: absolute;
+    background: $modal-background;
+    width: 100%;
+    height: 100%;
+
+    > div {
+      position: absolute;
+      width: 80%;
+      max-width: 520px;
+      background: $white;
+      left: 50%;
+      top: 40%;
+      border-radius: 4px;
+      transform: translate(-50%, -50%);
+
+      h4 {
+        font-size: 16px;
+        font-weight: 500;
+        color: $dark-grey;
+        padding: 20px;
+        border-bottom: 1px solid $border;
+      }
+
+      p {
+        button {
+          position: absolute;
+          width: 16px;
+          height: 16px;
+          right: 20px;
+          top: 22px;
+          text-align: right;
+          font-size: 16px;
+          color: $light-grey;
+        }
+      }
+    }
+  }
+}

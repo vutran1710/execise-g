@@ -1,0 +1,14 @@
+{
+  "description": {
+    "part1": "Hello WOrld",
+    "part2": "Im here to help"
+  },
+  "hello": "Welcome to the App",
+  "LoginPlease": "Please login with your account",
+  "Login": "Login",
+  "Submit": "Submit",
+  "nextScreen": "Next Screen",
+  "changeLanguage": "言語を変えてください",
+  "welcomeUser": "Welcome back, Mr.",
+  "greeting": "Enjoy Coding!!!"
+}

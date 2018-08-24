@@ -1,0 +1,41 @@
+#+OPTIONS: ^:nil
+#+TITLE: REACT-DEMO
+#+DATE: <2018-08-20 Monday>
+#+AUTHOR: Vuong Tran
+#+EMAIL: hello@vuongtran.co
+
+** Table of Content                                                    :TOC:
+  - [[#introduction][Introduction]]
+  - [[#dependencies][Dependencies]]
+  - [[#getting-started][Getting started]]
+
+** Introduction
+This is a demo react application. Everything has been done with enterprise-orientation.
+
+** Dependencies
+- Brunch: a build tool focus on simplicity, readability and ease-of-use
+- React
+- Redux + Redux-Form + Jumpstate: redux state-management
+- Normalize.css: unify browser's styling
+- React-Styleguidist: isolated environment for React-Component documentation & design
+
+** Getting started
+Clone the repo and install dependencies
+#+begin_src  sh
+$ git clone <repo-link> <folder-name>
+$ cd <folder-name>
+$ npm install
+#+end_src
+Get the app running with the following command in the terminal
+#+begin_src sh
+$ npm start
+#+end_src
+For production build, go for...
+#+begin_src sh
+$ npm run prod
+#+end_src
+To inpsect available components and their interactive documents, type...
+#+begin_src  code
+$ npm run styleguide
+#+end_src
+Finally, open browser and go to [[http://localhost:3333]]

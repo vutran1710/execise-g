@@ -1,0 +1,15 @@
+@import 'app/styles/var';
+
+.standard {
+  padding: $space / 2;
+  border: 1px solid $border;
+  border-radius: 4px;
+  width: 100%;
+  max-height: 100px;
+  resize: none;
+  font-size: 14px;
+  &::placeholder {
+    color: $light-grey;
+    opacity: 0.7;
+  }
+}

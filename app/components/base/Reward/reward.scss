@@ -1,0 +1,100 @@
+@import 'app/styles/var';
+@import 'app/styles/mixin';
+
+$reward-padding: $space / 2;
+
+.reward {
+  @include drop-shadow;
+  position: relative;
+  background: $white;
+  border-radius: 4px;
+  padding: $reward-padding 40px $reward-padding $reward-padding;
+  width: 100%;
+  position: relative;
+  margin-bottom: $space;
+
+  &:before {
+    position: absolute;
+    right: $reward-padding;
+    top: 20px;
+    font-size: 20px;
+    content: 'more_vert';
+    font-family: 'Material Icons';
+    color: $light-grey;
+    opacity: 0.2;
+  }
+}
+
+.info {
+  display: flex;
+  align-items: center;
+
+
+  h4 {
+    font-size: 16px;
+    font-weight: bold;
+    color: $dark-grey;
+  }
+  > div:nth-child(2) {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    margin: 0 $reward-padding;
+    img {
+      position: absolute;
+      width: 100%;
+      align-items: center;
+      top: 50%;
+      transform: translateY(-50%);
+      object-fit: cover;
+    }
+  }
+  p {
+    color: $dark-grey;
+    font-size: 14px;
+  }
+  > p:nth-child(3) {
+    font-weight: bold;
+    width: 300px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  > p:nth-child(4) {
+    color: $light-grey;
+    font-weight: 400;
+  }
+}
+
+.action {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+
+  p {
+    margin-left: $reward-padding;
+    color: $primary;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  i {
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  > p:first-child {
+    > i {
+      font-size: 15px;
+    }
+  }
+
+  > p:nth-child(3) {
+    color: $warning;
+  }
+}

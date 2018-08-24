@@ -1,0 +1,44 @@
+@import 'var';
+@import 'animation';
+
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+  min-height: 100vh;
+}
+
+.left-container {
+  width: 30%;
+  min-width: 320px;
+}
+.left-header {
+  padding: 30px $space;
+}
+.right-header {
+  padding: 10px 0;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  h4 {
+    font-size: 22px;
+    color: $light-grey;
+    font-weight: 500;
+    line-height: 38px;
+  }
+}
+.modal-init {
+  animation: fadeIn linear 0.2s forwards;
+}
+
+.modal-unmount {
+  animation: fadeOut linear 0.2s forwards;
+}
+
+button.icon {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  i {
+    font-size: inherit;
+  }
+}

@@ -1,0 +1,51 @@
+@import 'app/styles/var';
+
+button {
+  background: $white;
+  border: 1px solid $border;
+  color: $dark-grey;
+  font-size: 14px;
+  padding: 12px;
+  line-height: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  min-width: 100px;
+  transition-duration: 0.4s;
+  position: relative;
+  background: transparent;
+
+  &:hover {
+    background: darken($white, 10%)
+  }
+
+  &.primary {
+    color: $primary;
+    border-color: $primary;
+    &:hover {
+      color: $white;
+      background: $primary;
+    }
+  }
+
+  &.primary-bg {
+    color: $white;
+    background: $primary;
+    border-color: $primary;
+    &:hover {
+      background: darken($primary, 10%)
+    }
+  }
+
+  &.warning {
+    color: $white;
+    background: $warning;
+    &:hover {
+      background: darken($warning, 10%)
+    }
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    background-color: lighten($light-grey, 2%);
+  }
+}

@@ -1,0 +1,81 @@
+@import 'app/styles/var';
+@import 'app/styles/mixin';
+
+$cate-padding: $space / 2;
+
+.standard {
+  position: relative;
+  background: $white;
+
+  &:before {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    font-size: 20px;
+    color: $light-grey;
+    content: 'more_vert';
+    font-family: 'Material Icons';
+    opacity: 0.2;
+  }
+  h4, p {
+    font-weight: 500;
+  }
+}
+
+.selected {
+  @extend .standard;
+  background: $soft-grey;
+  h4, p {
+    color: $black;
+  }
+  h4 {
+    font-weight: bold;
+  }
+  p {
+    font-weight: 500;
+  }
+}
+
+.info {
+  display: flex;
+  padding: 20px 40px 20px 20px;
+  color: $light-grey;
+  > div {
+    width: 100%;
+    > p {
+      margin-left: $cate-padding;
+    }
+    > div {
+      flex: 1;
+      display: flex;
+      margin-top: $cate-padding;
+      justify-content: flex-end;
+      p {
+        margin-left: $cate-padding;
+        color: $primary;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    
+      i {
+        cursor: pointer;
+        font-size: 14px;
+      }
+    
+      > p:first-child {
+        > i {
+          font-size: 15px;
+        }
+      }
+    
+      > p:nth-child(3) {
+        color: $warning;
+      }
+    } 
+  }
+}
