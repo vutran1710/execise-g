@@ -4,8 +4,8 @@ import { TextArea, Input } from '../utils/FormInputs'
 import Container from '../base/Container'
 import Button from '../base/Button'
 
-const generateId = () => new Date().toISOString()
-const addNewCategory = value => Actions.main.addNewCategory(value)
+const generateId = () => Math.random().toString(36).substr(2, 5)
+const addNewCategory = value => Actions.main.addNewCategory({ ...value, id: generateId() })
 const closeModal = () => Actions.main.toggleModal()
 
 const AddCategoryForm = ({ handleSubmit }) => (
@@ -37,7 +37,7 @@ const AddCategoryForm = ({ handleSubmit }) => (
 
 export default reduxForm({
   form: 'categoryForm',
-  initialValues: { rewards: [], id: generateId() },
+  initialValues: { rewards: [] },
   onSubmit: addNewCategory,
   onSubmitSuccess: () => setTimeout(closeModal, 200)
 })(AddCategoryForm)

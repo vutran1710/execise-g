@@ -4,8 +4,8 @@ import { TextArea, Input } from '../utils/FormInputs'
 import Container from '../base/Container'
 import Button from '../base/Button'
 
-const generateId = () => new Date().toISOString()
-const addNewReward = value => Actions.main.addNewReward(value)
+const generateId = () => Math.random().toString(36).substr(2, 5)
+const addNewReward = value => Actions.main.addNewReward({ ...value, id: generateId() })
 const closeModal = () => Actions.main.toggleModal()
 
 const AddRewardForm = ({ handleSubmit }) => (
@@ -53,7 +53,6 @@ const AddRewardForm = ({ handleSubmit }) => (
 
 export default reduxForm({
   form: 'rewardForm',
-  initialValues: { id: generateId() },
   onSubmit: addNewReward,
   onSubmitSuccess: () => setTimeout(closeModal, 200)
 })(AddRewardForm)

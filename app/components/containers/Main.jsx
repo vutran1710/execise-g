@@ -50,7 +50,7 @@ const Main = ({ formType, showModal, selectedCategory, data }) => {
       </Container>
       <Container padded className='bg-7'>
         <RightHeader onClick={toggleModal(FORM_TYPE_2)} title={title} />
-        { rewards.length > 0
+        {rewards.length > 0
           ? (
             <ItemList
               items={rewards}
@@ -60,8 +60,8 @@ const Main = ({ formType, showModal, selectedCategory, data }) => {
                 propMapping: { ref: 'divRef', item: 'reward' }
               }}
             />
-          )
-          : (<NoReward title='No reward' content='Create new one here' onClick={toggleModal(FORM_TYPE_2)} />) }
+          ) : <NoReward />
+        }
       </Container>
       <Modal title={modalTitle} onClose={toggleModal()} toggle={showModal}>
         {formType === FORM_TYPE_1 && <AddCategoryForm />}
