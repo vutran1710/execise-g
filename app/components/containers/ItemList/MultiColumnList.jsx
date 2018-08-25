@@ -21,7 +21,6 @@ export default class MultiColumnList extends React.Component {
   }
 
   onDragEnd = result => {
-    console.log(result)
     if (!result.destination) {
       return
     }

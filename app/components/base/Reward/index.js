@@ -1,8 +1,12 @@
 import style from './reward.scss'
+import { Actions } from 'jumpstate'
 
 const fallBackLogo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Flag_of_None_%28square%29.svg/300px-Flag_of_None_%28square%29.svg.png'
 
-const Reward = ({ order, reward, divRef, ...rest }) => (
+const clearItem = (index, type) => () =>  Actions.main.setItemToRemove({ index, type })
+
+const Reward = ({ order, reward, divRef, ...rest }) => {
+  return (
   <div className={style.reward} ref={divRef} {...rest}>
     <div className={style.info}>
       <h4>
@@ -17,10 +21,12 @@ const Reward = ({ order, reward, divRef, ...rest }) => (
       <div className={style.action}>
         <p><i className='material-icons'>swap_vert</i></p>
         <p><i className='material-icons'>edit</i></p>
-        <p><i className='material-icons'>clear</i></p>
+        <p onClick={clearItem(order - 1, 'reward')}>
+          <i className='material-icons'>clear</i>
+        </p>
       </div>
     </div>
   </div>
-)
+)}
 
 export default Reward
