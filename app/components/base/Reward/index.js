@@ -1,7 +1,7 @@
 import { Actions } from 'jumpstate'
 import style from './reward.scss'
 
-const fallBackLogo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Flag_of_None_%28square%29.svg/300px-Flag_of_None_%28square%29.svg.png'
+const fallBackLogo = 'http://torchesdesignstudio.com/wp-content/uploads/2016/04/dummy-post-square-1-thegem-blog-masonry.jpg'
 
 const clearItem = (index, type) => () => Actions.main.setItemToRemove({ index, type })
 const setRewardToEdit = (index, type) => () => Actions.main.setRewardToEdit({ index, type })
@@ -14,7 +14,9 @@ const Reward = ({ order, reward, divRef, ...rest }) => (
         .
       </h4>
       <div className="img-wrapper">
-        <img alt="reward_logo" src={reward.brand_logo || fallBackLogo} />
+        <img alt="reward_logo" 
+          src={reward.brand_logo || fallBackLogo} 
+          onError={(e)=>{e.target.src=fallBackLogo}} />
       </div>
       <p>{reward.title}</p>
       <p>{reward.expiring}</p>
