@@ -6,12 +6,16 @@ const state = {
   showModal: false,
   formType: null,
   data: mock,
-  itemToRemove: {
+  itemToModify: {
     index: null,
     type: null
+  },
+  moveItem: {
+    fromIndex: null,
+    toIndex: null
   }
 }
 
-export const FORMTYPE = ['category', 'reward', 'confirmDelete']
+export const FORMTYPE = ['addCategory', 'addReward', 'editCategory', 'editReward', 'confirmDelete']
 
 export default state

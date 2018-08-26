@@ -4,11 +4,10 @@ import { TextArea, Input } from '../utils/FormInputs'
 import Container from '../base/Container'
 import Button from '../base/Button'
 
-const generateId = () => Math.random().toString(36).substr(2, 5)
-const addNewReward = value => Actions.main.addNewReward({ ...value, id: generateId() })
 const closeModal = () => Actions.main.toggleModal()
+const editReward = value => Actions.main.editReward({ ...value })
 
-const AddRewardForm = ({ handleSubmit }) => (
+const EditRewardForm = ({ handleSubmit }) => (
   <Container padded>
     <form onSubmit={handleSubmit} className="form">
       <label htmlFor="reward-name" className="form-control">
@@ -17,6 +16,7 @@ const AddRewardForm = ({ handleSubmit }) => (
           component={Input}
           name="name"
           placeholder="E.g. StarBucks"
+          value="test"
         />
       </label>
       <label htmlFor="reward-title" className="form-control">
@@ -53,6 +53,6 @@ const AddRewardForm = ({ handleSubmit }) => (
 
 export default reduxForm({
   form: 'rewardForm',
-  onSubmit: addNewReward,
+  onSubmit: editReward,
   onSubmitSuccess: () => setTimeout(closeModal, 200)
-})(AddRewardForm)
+})(EditRewardForm)

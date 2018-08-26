@@ -11,13 +11,17 @@ import Category from '../base/Category'
 import Reward from '../base/Reward'
 import NoReward from '../base/NoReward'
 import AddCategoryForm from './AddCategoryForm'
+import AddRewardForm from './AddRewardForm'
+import EditCategoryForm from './EditCategoryForm'
+import EditRewardForm from './EditRewardForm'
 import DeleteItem from './DeleteItem'
 
 const stateToProps = ({ main }) => ({
   selectedCategory: main.selectedCategory,
   showModal: main.showModal,
   formType: main.formType,
-  data: main.data
+  data: main.data,
+  rewardToEdit: main.data[main.selectedCategory].rewards[main.itemToModify.index]
 })
 
 const changeCategory = number => Actions.main.changeCategory(number)
@@ -28,18 +32,24 @@ const toggleModal = formType => () => {
   Actions.main.toggleModal()
 }
 
-const Main = ({ formType, showModal, selectedCategory, data }) => {
+const Main = ({ formType, showModal, selectedCategory, data, rewardToEdit }) => {
   const { rewards } = data[selectedCategory]
-  const [FORM_TYPE_1, FORM_TYPE_2, FORM_TYPE_3] = FORMTYPE
+  const [FORM_TYPE_1, FORM_TYPE_2, FORM_TYPE_3, FORM_TYPE_4, FORM_TYPE_5] = FORMTYPE
   const { title } = data[selectedCategory]
   const getModalTitle = () => {
     if (formType === FORM_TYPE_1) {
       return 'Add Category'
     }
     if (formType === FORM_TYPE_2) {
-      return 'Add Category'
+      return 'Add Reward'
     }
     if (formType === FORM_TYPE_3) {
+      return 'Edit Category'
+    }
+    if (formType === FORM_TYPE_4) {
+      return 'Edit Reward'
+    }
+    if (formType === FORM_TYPE_5) {
       return 'Confirm Delete'
     }
   }
@@ -78,11 +88,12 @@ const Main = ({ formType, showModal, selectedCategory, data }) => {
       <Modal title={modalTitle} onClose={toggleModal()} toggle={showModal}>
         {formType === FORM_TYPE_1 && <AddCategoryForm />}
         {formType === FORM_TYPE_2 && <AddRewardForm />}
-        {formType === FORM_TYPE_3 && <DeleteItem />}
+        {formType === FORM_TYPE_3 && <EditCategoryForm initialValues={data[selectedCategory]} />}
+        {formType === FORM_TYPE_4 && <EditRewardForm initialValues={rewardToEdit} />}
+        {formType === FORM_TYPE_5 && <DeleteItem />}
       </Modal>
     </Container>
   )
 }
-
 
 export default connect(stateToProps)(Main)

@@ -1,8 +1,9 @@
-import style from './category.scss'
 import { Actions } from 'jumpstate'
+import style from './category.scss'
 
 const categoryClass = selected => style[selected ? 'selected' : 'standard']
-const clearItem = (index, type) => () =>  Actions.main.setItemToRemove({ index, type })
+const clearItem = (index, type) => () => Actions.main.setItemToRemove({ index, type })
+const setCategoryToEdit = (index, type) => () => Actions.main.setCategoryToEdit({ index, type })
 
 const Category = ({ order, category, divRef, selectedCategory, onClick, toggleModal, ...rest }) => (
   <div
@@ -21,8 +22,12 @@ const Category = ({ order, category, divRef, selectedCategory, onClick, toggleMo
         <p>{category.title}</p>
         {order - 1 === selectedCategory && (
           <div className={style.action}>
-            <p><i className='material-icons'>swap_vert</i></p>
-            <p><i className='material-icons'>edit</i></p>
+            <p>
+              <i className='material-icons'>swap_vert</i>
+            </p>
+            <p onClick={setCategoryToEdit(order -1, 'category')}>
+              <i className='material-icons'>edit</i>
+            </p>
             <p onClick={clearItem(order - 1, 'category')}><i className='material-icons'>clear</i></p>
           </div>
         )}

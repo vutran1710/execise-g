@@ -6,9 +6,17 @@ import './effects'
 
 const main = State('main', {
   initial,
-  setItemToRemove: (state, itemToRemove) => ({ ...state, showModal: true, formType: FORMTYPE[2], itemToRemove }),
+  setItemToRemove: (state, itemToModify) => (
+    { ...state, showModal: true, formType: FORMTYPE[4], itemToModify }
+  ),
+  setRewardToEdit: (state, itemToModify) => (
+    { ...state, showModal: true, formType: FORMTYPE[3], itemToModify }
+  ),
+  setCategoryToEdit: (state, itemToModify) => (
+    { ...state, showModal: true, formType: FORMTYPE[2], itemToModify }
+  ),
   removeItem: state => {
-    const { index, type } = state.itemToRemove
+    const { index, type } = state.itemToModify
     if (type === 'category') {
       const newArray = [...state.data]
       const selected = state.selectedCategory
@@ -48,13 +56,42 @@ const main = State('main', {
       data: newData
     })
   },
-  addNewCategory: (state, newData) => ({ ...state, data: [...state.data, category] }),
+  addNewCategory: (state) => ({ ...state, data: [...state.data] }),
   addNewReward: (state, reward) => {
     const newData = Array.from(state.data)
     newData[state.selectedCategory] = {
       ...newData[state.selectedCategory],
       rewards: newData[state.selectedCategory].rewards.concat([reward])
     }
+    return ({
+      ...state,
+      data: newData
+    })
+  },
+  editReward: (state, reward) => {
+    const newData = Array.from(state.data)
+    const newRewards = [...state.data[state.selectedCategory].rewards]
+    newRewards.map((r, i) => {
+      if (r.id === reward.id) {
+        newRewards[i] = reward;
+      }
+    });
+    newData[state.selectedCategory] = {
+      ...newData[state.selectedCategory],
+      rewards: newRewards
+    }
+    return ({
+      ...state,
+      data: newData
+    })
+  },
+  editCategory: (state, data) => {
+    const newData = Array.from(state.data)
+    newData.map((c, i) => {
+      if (c.id === data.id) {
+        newData[i] = data;
+      }
+    });
     return ({
       ...state,
       data: newData
