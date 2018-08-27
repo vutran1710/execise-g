@@ -48,15 +48,6 @@ export default class Reward extends React.Component {
           <p>{reward.title}</p>
           <p>{reward.expiring}</p>
           <div className={style.action}>
-            <a onClick={this.toggleMoveTo}>
-              <i className="material-icons">swap_vert</i>
-            </a>
-            <a onClick={setRewardToEdit(order - 1, 'reward')}>
-              <i className="material-icons">edit</i>
-            </a>
-            <a onClick={clearItem(order - 1, 'reward')}>
-              <i className="material-icons">clear</i>
-            </a>
             {this.state.showMoveto && (
               <div className={style.formWrapper}>
                 <form onSubmit={moveReward} className="form">
@@ -71,6 +62,15 @@ export default class Reward extends React.Component {
                 </form>
               </div>
             )}
+            <a onClick={this.toggleMoveTo}>
+              <i className="material-icons">swap_vert</i>
+            </a>
+            <a onClick={setRewardToEdit(order - 1, 'reward')}>
+              <i className="material-icons">edit</i>
+            </a>
+            <a onClick={clearItem(order - 1, 'reward')}>
+              <i className="material-icons">clear</i>
+            </a>
           </div>
         </div>
       </div>
