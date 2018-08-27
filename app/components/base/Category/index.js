@@ -26,7 +26,9 @@ export default class Category extends React.Component {
       e.preventDefault();
       this.setState({ showMoveto: false });
       const value = parseInt(e.target.firstChild.value, 10);
-      Actions.main.moveItem(value - 1);
+      if (value) {
+        Actions.main.moveItem(value - 1);
+      }
     };
     const {
       order,
