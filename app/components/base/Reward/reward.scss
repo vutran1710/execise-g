@@ -97,3 +97,26 @@ $reward-padding: $space / 2;
     color: $warning;
   }
 }
+
+.formWrapper {
+  position: absolute;
+  right: 0;
+  top: -22px;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  > form {
+    display: flex;
+    input {
+      width: 94px;
+      height: 25px;
+      margin-bottom: 0;
+    }
+    button {
+      height: 25px;
+      line-height: 0;
+      margin-left: 10px;
+      min-width: 42px;
+    }
+  }
+}

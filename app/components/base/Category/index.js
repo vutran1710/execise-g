@@ -22,12 +22,12 @@ export default class Category extends React.Component {
     const categoryClass = selected => style[selected ? 'selected' : 'standard'];
     const clearItem = (index, type) => () => Actions.main.setItemToRemove({ index, type });
     const setCategoryToEdit = (index, type) => () => Actions.main.setCategoryToEdit({ index, type });
-    const moveItem = e => {
+    const moveCategory = e => {
       e.preventDefault();
       this.setState({ showMoveto: false });
       const value = parseInt(e.target.firstChild.value, 10);
       if (value) {
-        Actions.main.moveItem(value - 1);
+        Actions.main.moveCategory(value - 1);
       }
     };
     const {
@@ -65,7 +65,7 @@ export default class Category extends React.Component {
                 </a>
                 {this.state.showMoveto && (
                   <div className={style.formWrapper}>
-                    <form onSubmit={moveItem} className="form">
+                    <form onSubmit={moveCategory} className="form">
                       <input
                         type="number"
                         min="1"

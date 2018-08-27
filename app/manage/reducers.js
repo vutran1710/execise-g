@@ -49,7 +49,7 @@ const main = State('main', {
     }
   },
   setCategoryToMove: (state, itemToMove, showMoveTo) => ({ ...state, showMoveTo, itemToMove }),
-  moveItem: (state, newIndex) => {
+  moveCategory: (state, newIndex) => {
     const oldIndex = state.selectedCategory;
     const newData = Array.from(state.data);
     const maxIndex = state.data.length - 1;
@@ -59,6 +59,23 @@ const main = State('main', {
     return {
       ...state,
       selectedCategory: fixIndex,
+      data: newData
+    };
+  },
+  moveReward: (state, { oldIndex, newIndex }) => {
+    const { selectedCategory } = state;
+    const newData = Array.from(state.data);
+    const newRewards = Array.from(state.data[selectedCategory].rewards);
+    const maxIndex = newRewards.length - 1;
+    const fixIndex = newIndex > maxIndex ? maxIndex : newIndex;
+    newRewards[oldIndex] = state.data[selectedCategory].rewards[fixIndex];
+    newRewards[fixIndex] = state.data[selectedCategory].rewards[oldIndex];
+    newData[selectedCategory] = {
+      ...newData[selectedCategory],
+      rewards: newRewards
+    };
+    return {
+      ...state,
       data: newData
     };
   }
