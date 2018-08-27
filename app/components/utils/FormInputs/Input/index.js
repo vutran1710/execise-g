@@ -1,9 +1,8 @@
 import style from './style.scss'
 
-const Input = ({ meta: { touched, error }, input, ...rest }) => (
-  <div className={style.standard}>
+const Input = ({ input = {}, size, ...rest }) => (
+  <div className={style[size]}>
     <input {...input} {...rest} className="input-text" />
-    {touched && error && <small>Invalid value</small>}
   </div>
 )
 

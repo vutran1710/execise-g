@@ -16,7 +16,6 @@ const EditRewardForm = ({ handleSubmit }) => (
           component={Input}
           name="name"
           placeholder="E.g. StarBucks"
-          value="test"
         />
       </label>
       <label htmlFor="reward-title" className="form-control">
