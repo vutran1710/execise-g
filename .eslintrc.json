@@ -42,7 +42,9 @@
       }
     }],
     "jsx-a11y/label-has-associated-control": [ 2, { "depth": 3 }],
+    "jsx-a11y/click-events-have-key-events": 0,
     "semi": 0,
+    "max-len": ["error", { "code": 130 }],
     "no-debugger": 0,
     "no-console": 0,
     "camelcase": 0,

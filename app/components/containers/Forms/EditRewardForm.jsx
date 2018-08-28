@@ -1,8 +1,8 @@
 import { Field, reduxForm } from 'redux-form'
 import { Actions } from 'jumpstate'
-import { TextArea, Input } from '../utils/FormInputs'
-import Container from '../base/Container'
-import Button from '../base/Button'
+import { TextArea, Input } from '../../utils/FormInputs'
+import Container from '../../base/Container'
+import Button from '../../base/Button'
 
 const closeModal = () => Actions.main.toggleModal()
 const editReward = value => Actions.main.editReward({ ...value })
