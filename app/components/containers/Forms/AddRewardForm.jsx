@@ -1,14 +1,14 @@
-import { Field, reduxForm } from 'redux-form';
-import { Actions } from 'jumpstate';
-import { TextArea, Input } from '../utils/FormInputs';
-import Container from '../base/Container';
-import Button from '../base/Button';
+import { Field, reduxForm } from 'redux-form'
+import { Actions } from 'jumpstate'
+import { TextArea, Input } from '../../utils/FormInputs'
+import Container from '../../base/Container'
+import Button from '../../base/Button'
 
 const generateId = () => Math.random()
   .toString(36)
-  .substr(2, 5);
-const addNewReward = value => Actions.main.addNewReward({ ...value, id: generateId() });
-const closeModal = () => Actions.main.toggleModal();
+  .substr(2, 5)
+const addNewReward = value => Actions.main.addNewReward({ ...value, id: generateId() })
+const closeModal = () => Actions.main.toggleModal()
 
 const AddRewardForm = ({ handleSubmit }) => (
   <Container padded>
@@ -35,10 +35,10 @@ const AddRewardForm = ({ handleSubmit }) => (
       </div>
     </form>
   </Container>
-);
+)
 
 export default reduxForm({
   form: 'rewardForm',
   onSubmit: addNewReward,
   onSubmitSuccess: () => setTimeout(closeModal, 200)
-})(AddRewardForm);
+})(AddRewardForm)

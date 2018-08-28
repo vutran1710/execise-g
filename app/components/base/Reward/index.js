@@ -1,37 +1,38 @@
-import { Actions } from 'jumpstate';
-import Button from '../Button';
-import style from './reward.scss';
+import { Actions } from 'jumpstate'
+import Button from '../Button'
+import style from './reward.scss'
 
 // = ({ order, reward, divRef, ...rest }) => (
 export default class Reward extends React.Component {
-  state = { showMoveto: false };
+  state = { showMoveto: false }
 
   componentDidUpdate() {
-    const { showMoveto } = this.state;
+    const { showMoveto } = this.state
     if (showMoveto) {
-      this.moveToInput.focus();
+      this.moveToInput.focus()
     }
   }
 
   toggleMoveTo = e => {
-    e.preventDefault();
-    const { showMoveto } = this.state;
-    this.setState({ showMoveto: !showMoveto });
-  };
+    e.preventDefault()
+    const { showMoveto } = this.state
+    this.setState({ showMoveto: !showMoveto })
+  }
 
   render() {
-    const fallBackLogo = 'http://torchesdesignstudio.com/wp-content/uploads/2016/04/dummy-post-square-1-thegem-blog-masonry.jpg';
-    const clearItem = (index, type) => () => Actions.main.setItemToRemove({ index, type });
-    const setRewardToEdit = (index, type) => () => Actions.main.setRewardToEdit({ index, type });
-    const { order, reward, divRef, ...rest } = this.props;
+    const fallBackLogo = 'http://torchesdesignstudio.com/wp-content/uploads/2016/04/dummy-post-square-1-thegem-blog-masonry.jpg'
+    const clearItem = (index, type) => () => Actions.main.setItemToRemove({ index, type })
+    const setRewardToEdit = (index, type) => () => Actions.main.setRewardToEdit({ index, type })
+    const { order, reward, divRef, ...rest } = this.props
+    const { showMoveto } = this.state
     const moveReward = e => {
-      e.preventDefault();
-      this.setState({ showMoveto: false });
-      const value = parseInt(e.target.firstChild.value, 10);
+      e.preventDefault()
+      this.setState({ showMoveto: false })
+      const value = parseInt(e.target.firstChild.value, 10)
       if (value) {
-        Actions.main.moveReward({ oldIndex: order - 1, newIndex: value - 1 });
+        Actions.main.moveReward({ oldIndex: order - 1, newIndex: value - 1 })
       }
-    };
+    }
     return (
       <div className={style.reward} ref={divRef} {...rest}>
         <div className={style.info}>
@@ -41,21 +42,21 @@ export default class Reward extends React.Component {
               alt="reward_logo"
               src={reward.brand_logo || fallBackLogo}
               onError={e => {
-                e.target.src = fallBackLogo;
+                e.target.src = fallBackLogo
               }}
             />
           </div>
           <p>{reward.title}</p>
           <p>{reward.expiring}</p>
           <div className={style.action}>
-            {this.state.showMoveto && (
+            {showMoveto && (
               <div className={style.formWrapper}>
                 <form onSubmit={moveReward} className="form">
                   <input
                     type="number"
                     min="1"
                     ref={el => {
-                      this.moveToInput = el;
+                      this.moveToInput = el
                     }}
                   />
                   <Button type="submit" title="Go" btn="primary-bg" />
@@ -74,6 +75,6 @@ export default class Reward extends React.Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }

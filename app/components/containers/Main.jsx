@@ -6,16 +6,16 @@ import Container from '../base/Container'
 import Modal from '../base/Modal'
 import Reward from '../base/Reward'
 import NoReward from '../base/NoReward'
+import Category from '../base/Category'
+
+import AddCategoryForm from './Forms/AddCategoryForm'
+import AddRewardForm from './Forms/AddRewardForm'
+import EditCategoryForm from './Forms/EditCategoryForm'
+import EditRewardForm from './Forms/EditRewardForm'
 
 import LeftHeader from './LeftHeader'
 import RightHeader from './RightHeader'
 import ItemList from './ItemList'
-import Category from '../base/Category'
-
-import AddCategoryForm from './AddCategoryForm'
-import AddRewardForm from './AddRewardForm'
-import EditCategoryForm from './EditCategoryForm'
-import EditRewardForm from './EditRewardForm'
 import DeleteItem from './DeleteItem'
 
 const stateToProps = ({ main }) => ({
