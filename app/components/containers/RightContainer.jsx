@@ -21,8 +21,7 @@ const toggleModal = formType => () => {
 }
 
 const RightContainer = ({ selectedCategory, data }) => {
-  const { rewards } = data[selectedCategory]
-  const { title } = data[selectedCategory]
+  const { rewards, title } = data[selectedCategory]
   return (
     <Container className="bg-7" padded>
       <Container className="right-header">
