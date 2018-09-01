@@ -20,7 +20,7 @@ module.exports = {
     formType: FORMTYPE[2],
     itemToModify
   }),
-  addNewCategory: state => ({ ...state, data: [...state.data] }),
+  addNewCategory: (state, data) => ({ ...state, data: [...state.data, data] }),
   addNewReward: (state, reward) => {
     const newData = Array.from(state.data);
     newData[state.selectedCategory] = {
